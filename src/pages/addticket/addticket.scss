@@ -1,0 +1,38 @@
+page-addticket {
+	#updateBox{
+		textarea{
+			width: 100%;
+			height: 550px;
+		}
+	}
+
+	#barHeader {
+    border: 1px;
+    border-bottom-color: primary ;
+    border-bottom: inset; ;
+	}
+}
+.img-right{
+  float:right;
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  border-radius: 70%;
+  margin-left: 0px;
+  padding-right: 5px;
+}
+
+.text-left{
+  float:left;
+}
+
+.item-input.input-has-focus::after{
+  border-bottom: 0;
+}
+
+.img-loaded + ion-spinner {
+  display:none;
+}
+
+

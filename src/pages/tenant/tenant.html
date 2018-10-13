@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+    <ion-buttons end style="padding-right:5px">
+    	<button ion-button icon-only (tap)="createUser()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-list>
+		<ion-item no-padding>
+	  	<ion-label></ion-label>
+	  	<ion-input type="text" placeholder="Name" [(ngModel)]="userRegister.name"></ion-input>
+	  </ion-item>
+
+	  <ion-item no-padding>
+	  	<ion-label></ion-label>
+	  	<ion-input type="email" placeholder="Email" [(ngModel)]="userRegister.email" pattern="^[a-zA-Z0-9._]+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+	  		
+	  	</ion-input>
+	  </ion-item>
+
+	  <ion-item no-padding>
+	  	<ion-label></ion-label>
+	  	<ion-input type="password" placeholder="Password" clearInput="true" [(ngModel)]="userRegister.password"></ion-input>
+	  </ion-item>
+
+	  <ion-item no-padding>
+	  	<ion-label></ion-label>
+	  	<ion-input type="password" placeholder="Re-enter Password" clearInput="true" [(ngModel)]="userRegister.repassword"></ion-input>
+	  </ion-item>
+
+	  <ion-item no-padding>
+	  	<ion-label></ion-label>
+	  	<ion-input type="number" placeholder="Phone Number" [(ngModel)]="userRegister.phone"></ion-input>
+	  </ion-item>
+
+	  <ion-item no-padding>
+	    <ion-label padding-left class="place">Tenant</ion-label>
+	    <ion-toggle [(ngModel)]="tenant"></ion-toggle>
+	  </ion-item>
+
+	  <ion-item no-padding *ngIf = "tenant == true">
+		  <ion-label padding-left>Select Tenant</ion-label>
+		  <ion-select [(ngModel)]="userRegister.selTenant">
+			  <ion-option *ngFor="let data of tenantData" [value]="data.value">{{data.label}}</ion-option>
+		  </ion-select>
+		</ion-item>
+
+		<div>&nbsp;</div>
+
+	</ion-list>
+</ion-content>

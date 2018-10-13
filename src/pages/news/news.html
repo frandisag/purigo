@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle><ion-icon name ="menu"></ion-icon></button>
+    <ion-title>News</ion-title>
+    <ion-buttons end style="padding-right: 5px;">
+      <button ion-button icon-only (tap)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <ion-slides pager="true" (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image" />
+      <h3 class="slide-title" [innerHTML]="slide.title"></h3>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/img/5.png" class="slide-image" />
+      <h2 class="slide-title">Ready to Create?</h2>
+      <button ion-button icon-end large clear>
+        Create
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+  <ion-fab bottom right >
+    <button ion-fab (tap)="onClick()" *ngIf="isAdmin"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+

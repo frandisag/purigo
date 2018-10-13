@@ -1,0 +1,54 @@
+<!--
+  Generated template for the ListbookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{param.type}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+	<ion-list padding-left>
+  	<ion-item-sliding *ngFor="let item of items; let msgIndex = index" no-padding>
+  	  <button *ngIf = "param.admin" ion-item (tap)="openChat(item.book_id)" no-padding>
+        <ion-avatar item-start>
+          <img src="{{item.profile_url}}" />
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <p>{{item.company_name}}</p>
+      </button>
+
+      <button *ngIf = "param.superadmin" ion-item (tap)="openChat(item.book_id)" no-padding>
+        <ion-avatar item-start>
+          <img src="{{item.profile_url}}" />
+        </ion-avatar>
+        <h2 padding-left>{{item.name}}</h2>
+        <p padding-left>{{item.company_name}}</p>
+      </button>
+
+      <button *ngIf = "param.user" ion-item (tap)="openChat(item.book_id)" no-padding>
+        <ion-avatar item-start>
+          <img src="{{item.profile_url}}" />
+        </ion-avatar>
+        <h2 padding-left>{{item.name}}</h2>
+        <p padding-left>{{item.company_name}}</p>
+      </button>
+      
+
+      <ion-item-options padding-right>
+        <button ion-button color="dark" (tap)="detailBook(item.book_id,msgIndex)">
+          DETAIL
+        </button>
+      </ion-item-options>
+  	</ion-item-sliding>
+  </ion-list>
+  <ion-fab bottom right >
+    <button ion-fab (tap)="openBook(param.type)" *ngIf="isAdmin"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

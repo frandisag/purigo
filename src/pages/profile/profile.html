@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar hideBackButton = "false">
+    <ion-title>Profile</ion-title>
+
+    <ion-buttons end>    
+	    <button ion-button icon-only (tap)="updateProfile(settingData.user_id)" style="padding-right:5px">
+	      <ion-icon name="checkmark"></ion-icon>
+	    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-top>
+	<div text-center padding-top class="profile-image" (click)="editimage()">
+		<img-loader style="text-align: center;" src="{{settingData.profile_image}}" useImg></img-loader>
+	</div>
+	
+	<div style="height: 10px"></div>
+
+	<div text-center>
+  	Tap on your pic to change it.
+	</div>
+	
+  <ion-list>
+  	<ion-item>
+	    <ion-label floating>Name</ion-label>
+	    <ion-input type="text" [(ngModel)]="settingData.name"></ion-input>
+	  </ion-item>
+
+	  <ion-item hidden="true">
+	    <ion-label floating>Email</ion-label>
+	    <ion-input type="text" [(ngModel)]="settingData.email"></ion-input>
+	  </ion-item>
+
+	  <ion-item hidden="true">
+	    <ion-label floating>Username</ion-label>
+	    <ion-input type="text" [(ngModel)]="settingData.username"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	  	<ion-label floating>Phone Number</ion-label>
+	  	<ion-input type="number" [(ngModel)]="settingData.phone"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating>Password</ion-label>
+	    <ion-input type="password" [(ngModel)]="settingData.password"></ion-input>
+	  </ion-item>
+
+	  <ion-item>
+	    <ion-label floating>Re-enter Password</ion-label>
+	    <ion-input type="password" [(ngModel)]="settingData.passVal"></ion-input>
+	  </ion-item>
+
+	  <div>&nbsp;</div>
+
+	</ion-list>					
+</ion-content>

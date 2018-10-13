@@ -1,0 +1,97 @@
+<!--
+  Generated template for the EditusrticketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Ticket</ion-title>
+    <ion-buttons end style="padding-right: 5px;" *ngIf = "statusValue.status">
+      <button ion-button icon-only (tap)="updateTicket(ticketData.status)">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+		<ion-item-group>
+			<ion-item-divider color="dark">
+	      Ticket Submit
+	    </ion-item-divider>
+
+		  <ion-item  [hidden] = "true">
+				<ion-input type="text" name="text_id" value ="{{ticketData.ticket_id}}"></ion-input>
+		  </ion-item>
+
+		  <ion-item *ngIf = "ticketData.img_sub_stat">
+		  	<img src="{{ticketData.img_submit}}" imageViewer >
+		  </ion-item> 
+
+		  <ion-item>
+		  	<ion-label floating>Subject</ion-label>
+		  	<ion-input type="text" [(ngModel)]="ticketData.subject" readonly value="{{ticketData.subject}}"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Category</ion-label>
+		    <ion-input type="text" [(ngModel)]="ticketData.category" readonly value="{{ticketData.category}}"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label floating>Location</ion-label>
+		    <ion-input type="text" [(ngModel)]="ticketData.location" readonly value="{{ticketData.location}}"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Desc Detail</ion-label>
+		  	<ion-input type="text" [(ngModel)]="ticketData.desc" readonly value="{{ticketData.description}}"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Closed Reason</ion-label>
+		  	<ion-textarea [(ngModel)]="ticketData.closed_reason"></ion-textarea>
+		  </ion-item>
+
+		  <div>&nbsp;</div>
+		</ion-item-group>
+
+		<ion-item-group>
+			<ion-item-divider color="dark">
+		  	Ticket Action
+		  </ion-item-divider>
+
+		  <ion-item *ngIf = "ticketData.img_act_stat">
+		  	<img-loader src="{{ticketData.img_action}}" useImg></img-loader>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label>Status</ion-label>
+		  	<ion-select [(ngModel)]="ticketData.status">
+		  		<ion-option value="Open" *ngIf = "optionValue.open">Open</ion-option>
+		      <ion-option value="Respon" *ngIf = "optionValue.respon">Respon</ion-option>
+		      <ion-option value="Fixed" *ngIf = "optionValue.fixed">Fixed</ion-option>
+		      <ion-option value="Closed" *ngIf = "optionValue.closed">Closed</ion-option>
+		    </ion-select>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Updated By</ion-label>
+		  	<ion-input type="text" [(ngModel)]="ticketData.updated_name" readonly value="{{ticketData.updated_name}}"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		  	<ion-label floating>Action</ion-label>
+		  	<ion-textarea [(ngModel)]="ticketData.action_reason" readonly></ion-textarea>
+		  </ion-item>
+
+		  <div>&nbsp;</div>
+	  </ion-item-group>
+
+	</ion-list>
+</ion-content>

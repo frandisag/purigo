@@ -1,0 +1,59 @@
+page-marketingchat {
+    .label {
+        margin: 0;
+    }
+}
+
+.chatwindow {
+    padding-bottom: 70px;
+}
+
+.bubbleme{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    position: relative;
+    vertical-align: top;
+}
+
+.bubbleimageme{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 5px;
+    padding-bottom: 0px;
+    position: relative;
+    vertical-align: top;
+}
+
+.bubbleyou{
+    background-color: transparent;
+    border-radius: 5px;
+    border: solid 1px #cccccc;
+    display: inline-block;
+    padding: 5px 10px;
+    position: relative;
+    vertical-align: top;
+}
+
+.bubbleimageyou{
+    background-color: transparent;
+    border-radius: 5px;
+    border: solid 1px #cccccc;
+    display: inline-block;
+    padding: 5px 5px;
+    padding-bottom: 0px;
+    position: relative;
+    vertical-align: top;
+}
+
+.me {
+    float: right;   
+    margin: 5px 5px 5px 5px;         
+}
+
+.you {
+    float: left;    
+    margin: 5px 5px 5px 5px;         
+}

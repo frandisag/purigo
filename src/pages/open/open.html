@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+  	<button ion-button menuToggle><ion-icon name ="menu"></ion-icon></button>
+    <ion-title>Ticket Open</ion-title>
+    <ion-buttons end style="padding-right: 5px;">
+      <button ion-button *ngIf="isAdmin" icon-only (tap)="chgPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+      <button ion-button icon-only (tap)="showSetting($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-list padding-left>
+  	<ion-item-sliding *ngFor="let item of items; let msgIndex = index" no-padding>
+  	  <button ion-item (tap)="editTicket(item.id)" no-padding>
+        <div style="border-left: 2px solid #FD8B2D;">
+          <h2 padding-left>{{item.subject}}</h2>
+          <p padding-left>{{item.description}}</p>
+        </div>
+      </button>
+
+	    
+  		<ion-item-options padding-right>
+        <button ion-button color="light" (tap)="responTicket(item.id,msgIndex)" *ngIf = "statButton.respon">
+            RESPON
+        </button>
+        <button ion-button color="lightprimary" (tap)="fixedTicket(item.id,msgIndex)" *ngIf = "statButton.fixed">
+            FIXED
+        </button>
+        <button ion-button color="dark" (tap)="closedTicket(item.id,item.category,msgIndex)" *ngIf = "statButton.closed">
+            CLOSED
+        </button>
+      </ion-item-options>
+  	</ion-item-sliding>
+  </ion-list>
+</ion-content>
